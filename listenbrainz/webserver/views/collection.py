@@ -57,7 +57,7 @@ def _fetch_recording_collection_tracks(mb_curs, collection_id: int, *, count: in
             JOIN musicbrainz.artist_credit ac
               ON ac.id = r.artist_credit
            WHERE ecr.collection = %s
-           ORDER BY ecr.position NULLS LAST, ecr.id
+           ORDER BY ecr.position NULLS LAST, ecr.recording
            LIMIT %s OFFSET %s
         """,
         (collection_id, count, offset),
